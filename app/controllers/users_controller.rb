@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
   def login
     @user = User.find_by(email: params[:email], password: params[:password])
-    logger.debug("ああああああああああああああああああああああああ")
     if @user
       flash[:notice] = "ログインしました"
       redirect_to("/view/index")
