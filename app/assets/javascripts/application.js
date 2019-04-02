@@ -17,12 +17,19 @@
 //= require moment
 //= require fullcalendar
 //= require fullcalendar/lang/ja
+//= require main
+//= require main1
 
-$(document).ready(function(){
-  $('#calendar').fullCalendar({
+document.addEventListener('DOMContentLoaded', function() {
+  var calendarEl = document.getElementById('calendar');
 
-
-
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    plugins: [ 'dayGrid' ],
+    timeZone: 'UTC',
+    defaultView: 'dayGridMonth',
+    height: 'parent',
   });
+
+  calendar.render();
 });
 //= require_tree .
