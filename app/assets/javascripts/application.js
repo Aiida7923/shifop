@@ -20,7 +20,9 @@
 
 $(document).ready(function(){
   $('#calendar').fullCalendar({
-    
+
+
+
   });
 });
 //= require_tree .
