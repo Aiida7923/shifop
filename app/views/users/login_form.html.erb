@@ -1,16 +1,22 @@
-<div class="login">
-  <div class="login-triangle"></div>
+<head>
 
-  <% if @error_message %>
+</head>
+
+<body>
+  <div class="login">
+    <div class="login-triangle"></div>
+
+    <% if @error_message %>
     <div class="form-error">
       <%= @error_message %>
     </div>
-  <% end %>
-
-  <h2 class="login-header">Log in</h2>
-    <%= form_tag("/login") do %>
-      <input name="email" value="<%= @email %>" placeholder="Email">
-      <input type="password" name="password" value="<%= @password %>" placeholder="Password" >
-      <input type="submit" value="Log in">
     <% end %>
-</div>
+
+    <h2 class="login-header">Log in</h2>
+    <%= form_tag("/login") do %>
+    <input name="email" value="<%= @email %>" placeholder="Email">
+    <input type="password" name="password" value="<%= @password %>" placeholder="Password" >
+    <input type="submit" value="Log in">
+    <% end %>
+  </div>
+</body>
