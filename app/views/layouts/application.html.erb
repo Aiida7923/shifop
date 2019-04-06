@@ -10,34 +10,8 @@
 
     <%= favicon_link_tag('favicon.ico') %>
   </head>
-<%
-=begin
-%>
-    <header>
-      <div class="header_logo">
-        <img src="assets/Shifop.png" alt="">
-      </div>
-    </header>
-<%
-=end
-%>
 
   <body>
-<%
-=begin
-%>
-    <% if @current_user %>
-      <li>
-        <%= link_to("ログアウト","/logout", {method: :post}%>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to("ログイン", "/login") %>
-      </li>
-<%
-=end
-%>
-
     <%= yield %>
   </body>
 </html>
