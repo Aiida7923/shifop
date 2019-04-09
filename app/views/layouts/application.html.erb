@@ -1,7 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
+    <meta charset="utf-8">
     <title>Shifop</title>
+    <!--CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <!--JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,11 +20,40 @@
 
   <body>
     <header>
-      <img src="assets/shifop.png" alt="" class="img">
+      <img src="/assets/logo.png" alt="" class="img">
       <ul class="header-menus">
         <% if @current_user %>
         <li>
-          <%= link_to("申請","view/offer")%>
+          <!-- 1.モーダルを表示する為のボタン -->
+          <button class="btn btn-primary" data-toggle="modal" data-target="#modal-sample">
+            申請
+          </button>
+
+          <!-- 2.モーダルの配置 -->
+          <div class="modal" id="modal-sample" tabindex="-1">
+            <div class="modal-dialog">
+
+              <!-- 3.モーダルのコンテンツ -->
+              <div class="modal-content">
+                <!-- 4.モーダルのヘッダ -->
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="modal-label">シフト申請</h4>
+                </div>
+                <!-- 5.モーダルのボディ -->
+                <div class="modal-body">
+                  コンテンツの本文
+                </div>
+                <!-- 6.モーダルのフッタ -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary">申請</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </li>
         <li>
           <%= link_to("ログアウト", "/logout", {method: :post})%>

@@ -3,23 +3,16 @@ header{
   height:150px;
 }
 
+button{
+  width: 100px;
+  height: 40px;
+}
+
 .header-menus{
   float: right;
-  padding-right: 20px;
-  margin-top: 10px;
-}
-
-.header-menus li{
-  list-style: none;
-  float: left;
-  line-height: 30px;
-  font-size: 17px;
-  padding-left: 15px;
-}
-
-.img{
-  height:150px;
-  width:10%;
+  padding: 0 40px;
+  text-align: center;
+  margin-top: 25px;
 }
 
 .header-menus li {
@@ -27,5 +20,15 @@ header{
   line-height: 64px;
   font-size: 13px;
   color: white;
-  padding-left: 15px;
+  margin: 0 20px;
+}
+
+img{
+  height:100%;
+  width:auto;
+}
+
+
+.modal{
+  color:black;
 }
