@@ -3,9 +3,8 @@ header{
   height:150px;
 }
 
-button{
-  width: 100px;
-  height: 40px;
+.btn{
+  width: 120px;
 }
 
 .header-menus{

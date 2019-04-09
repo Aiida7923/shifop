@@ -20,6 +20,13 @@
 //= require main
 //= require main1
 
+$(function(){
+  window.onunload = function() {};
+  history.forward();
+});
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
 
@@ -32,6 +39,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
   calendar.render();
 });
-
 
 //= require_tree .
