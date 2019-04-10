@@ -19,6 +19,14 @@
 //= require fullcalendar/lang/ja
 //= require main
 //= require main1
+//= import { Calendar } from '@fullcalendar/core';
+//= import dayGridPlugin from '@fullcalendar/daygrid';
+//= import timeGridPlugin from '@fullcalendar/timegrid';
+//= import listPlugin from '@fullcalendar/list';
+
+
+
+
 
 $(function(){
   window.onunload = function() {};
@@ -35,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     timeZone: 'UTC',
     defaultView: 'dayGridMonth',
     height: 'parent',
+    selectable: true,
   });
 
   calendar.render();

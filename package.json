@@ -1,5 +1,11 @@
 {
   "name": "shifop",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@fullcalendar/core": "^4.0.2",
+    "@fullcalendar/daygrid": "^4.0.1",
+    "@fullcalendar/list": "^4.0.1",
+    "@fullcalendar/timegrid": "^4.0.1",
+    "jQuery": "^1.7.4"
+  }
 }
