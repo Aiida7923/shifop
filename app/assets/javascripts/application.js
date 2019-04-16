@@ -27,12 +27,11 @@
 
 
 
-
+//ブラウザバックの禁止
 $(function(){
   window.onunload = function() {};
   history.forward();
 });
-
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -48,5 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   calendar.render();
 });
+
+//モーダルに関する記述
+
 
 //= require_tree .

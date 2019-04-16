@@ -10,15 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_10_042026) do
+ActiveRecord::Schema.define(version: 2019_04_10_051136) do
 
   create_table "project_todos", force: :cascade do |t|
   end
 
+  create_table "shifts", force: :cascade do |t|
+    t.time "start"
+    t.time "end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "sex"
-    t.string "birthday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password"
