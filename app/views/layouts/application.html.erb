@@ -40,19 +40,21 @@
                   <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
                   </button>
-                  <h4 class="modal-title" id="modal-label">申請</h4>
+                  <h4 class="modal-title" id="modal-label">希望する日時を選択して下さい</h4>
                 </div>
                 <!-- 5.モーダルのボディ -->
-                <div class="modal-body">
-                  <input class="form-control" type="date" id="today" placeholder="日付">
-                  <input class="form-control" type="time" min="09:00" max="22:00" placeholder="開始時刻">
-                  <input class="form-control" type="time" min="09:00" max="22:00" placeholder="終了時刻">
-                </div>
+                <%= form_tag("/posts/offer") do %>
+                  <div class="modal-body">
+                    <input class="form-control" type="date" name="today" id="today">
+                    <input class="form-control" type="time" name="start_time" value="09:00" step="900" min="09:00" max="22:00">
+                    <input class="form-control" type="time" name="end_time" value="22:00" step="900" min="09:00" max="22:00">
+                  </div>
                 <!-- 6.モーダルのフッタ -->
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-primary">申請</button>
-                  <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-                </div>
+                  <div class="modal-footer">
+                    <input type="submit" class="btn btn-primary" id="offer-data" value="申請"></input>
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="閉じる"></input>
+                  </div>
+                <% end %>
               </div>
             </div>
           </div>

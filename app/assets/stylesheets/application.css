@@ -13,6 +13,6 @@
  *= require_tree .
  *= require_self
  *= require fullcalendar
- *= require main
- *= require main1
+ *= require core
+ *= require daygrid
  */
