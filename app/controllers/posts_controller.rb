@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
 
   def offer
-    @shift = Shift.new(data: params[:data], start: params[:start_time], end: params[:end_time])
-    @shift.save
+    @post = Post.new(workday: params[:workday], start: params[:start_time], end: params[:end_time])
+    @post.save
     redirect_to("/view/index")
   end
 end

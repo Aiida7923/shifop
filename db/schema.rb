@@ -10,13 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_16_124404) do
+ActiveRecord::Schema.define(version: 2019_04_17_101315) do
+
+  create_table "posts", force: :cascade do |t|
+    t.integer "user_id"
+    t.date "workday"
+    t.time "start"
+    t.time "end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "project_todos", force: :cascade do |t|
   end
-
-# Could not dump table "shifts" because of following StandardError
-#   Unknown type 'data' for column 'workday'
 
   create_table "users", force: :cascade do |t|
     t.string "name"
