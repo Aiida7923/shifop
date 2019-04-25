@@ -20,11 +20,14 @@
 //= require core
 //= require daygrid
 //= require interaction
+//= require rrule
+
 //= import { Calendar } from '@fullcalendar/core';
 //= import dayGridPlugin from '@fullcalendar/daygrid';
 //= import timeGridPlugin from '@fullcalendar/timegrid';
 //= import listPlugin from '@fullcalendar/list';
 //= import interactionPlugin from '@fullcalendar/interaction';
+//= import rrulePlugin from '@fullcalendar/rrule';
 
 
 
@@ -49,18 +52,42 @@ document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
 
   var calendar = new FullCalendar.Calendar(calendarEl, {
-    plugins: [ 'dayGrid','interaction' ],
+    plugins: [ 'dayGrid','interaction','rrule' ],
     timeZone: 'UTC',
     defaultView: 'dayGridMonth',
     height: 'parent',
     selectable: true,
+    header: {
+      center: 'addEventButton'
+    },
+    customButtons: {
+      addEventButton: {
+        text: 'シフト決め打ち',
+        click: function() {
+          var dateStr = prompt('Enter a date in YYYY-MM-DD format');
+          var date = new Date(dateStr + 'T00:00:00'); // will be in local time
 
-    dateClick: function(info) {
-      // alert('Clicked on: ' + info.dateStr);
-      // alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-      // alert('Current view: ' + info.view.type);
-      // change the day's background color just for fun
+          if (!isNaN(date.valueOf())) { // valid?
+            calendar.addEvent({
+              title: '希望シフト',
+              start: date,
+              allDay: true
+            });
+            alert('Great. Now, update your database...');
+          } else {
+            alert('Invalid date.');
+          }
+        }
+      }
     }
+
+
+    // dateClick: function(info) {
+    //   // alert('Clicked on: ' + info.dateStr);
+    //   // alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+    //   // alert('Current view: ' + info.view.type);
+    //   // change the day's background color just for fun
+    // }
   });
 
   calendar.render();
