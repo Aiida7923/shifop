@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post "login" => "users#login"
   post "logout" => "users#logout"
   post "posts/offer" => "posts#offer"
-  get "view/show"
+  get "posts/index"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

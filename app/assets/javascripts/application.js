@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
 
   var calendar = new FullCalendar.Calendar(calendarEl, {
-    plugins: [ 'dayGrid','interaction','rrule' ],
+    plugins: [ 'dayGrid','interaction'],
     timeZone: 'UTC',
     defaultView: 'dayGridMonth',
     height: 'parent',
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         text: 'シフト決め打ち',
         click: function() {
           var dateStr = prompt('Enter a date in YYYY-MM-DD format');
-          var date = new Date(dateStr + 'T00:00:00'); // will be in local time
+          var date = new Date(dateStr); // will be in local time
 
           if (!isNaN(date.valueOf())) { // valid?
             calendar.addEvent({
@@ -79,13 +79,19 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         }
       }
-    }
+    },
 
-
+    eventClick:  function(event, jsEvent, view) {
+    console.log("-------------------")
+    $('#modalTitle').html(event.title);
+    $('#modalBody').html(event.description);
+    $('#eventUrl').attr('href',event.url);
+    $('#calendarModal').modal();
+    },
     // dateClick: function(info) {
-    //   // alert('Clicked on: ' + info.dateStr);
-    //   // alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-    //   // alert('Current view: ' + info.view.type);
+    //   alert('Clicked on: ' + info.dateStr);
+    //   alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+    //   alert('Current view: ' + info.view.type);
     //   // change the day's background color just for fun
     // }
   });
@@ -98,6 +104,7 @@ $('#offer-data').click(function() {
   $('.modal').fadeOut();
 });
 
+//デフォルトの日付に関する記述
 // $(function(){
 //     var today = new Date();
 //     today.setDate(today.getDate());
