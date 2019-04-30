@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require jquery
 //= require turbolinks
 //= require moment
 //= require fullcalendar
@@ -60,46 +59,59 @@ document.addEventListener('DOMContentLoaded', function() {
     header: {
       center: 'addEventButton'
     },
-    customButtons: {
-      addEventButton: {
-        text: 'シフト決め打ち',
-        click: function() {
-          var dateStr = prompt('Enter a date in YYYY-MM-DD format');
-          var date = new Date(dateStr); // will be in local time
+    // customButtons: {
+    //   addEventButton: {
+    //     text: 'シフト決め打ち',
+    //     click: function() {
+    //       console.log("----------決め打ち---------")
+    //       var dateStr = prompt('Enter a date in YYYY-MM-DD format');
+    //       var date = new Date(dateStr); // will be in local time
+    //
+    //       calendar.addEvent({
+    //         title: '希望シフト',
+    //         start: date,
+    //         allDay: true
+    //       if (!isNaN(date.valueOf())) { // valid?
+    //         });
+    //         alert('Great. Now, update your database...');
+    //       } else {
+    //         alert('Invalid date.');
+    //       }
+    //     }
+    //   }
+    // },
 
-          if (!isNaN(date.valueOf())) { // valid?
-            calendar.addEvent({
-              title: '希望シフト',
-              start: date,
-              allDay: true
-            });
-            alert('Great. Now, update your database...');
-          } else {
-            alert('Invalid date.');
-          }
-        }
-      }
+    // dayClick:  function(date, jsEvent, view) {
+    // console.log("----------dayクリック---------")
+    // $('#calendarModal').fadeIn();
+    // },
+
+    dateClick: function(info) {
+      console.log($('#modal_box'))
+      $('#modal-sample').modal('show');
+      // alert('Clicked on: ' + info.dateStr);
+      // alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+      // alert('Current view: ' + info.view.type);
+      // change the day's background color just for fun
     },
 
-    eventClick:  function(event, jsEvent, view) {
-    console.log("-------------------")
-    $('#modalTitle').html(event.title);
-    $('#modalBody').html(event.description);
-    $('#eventUrl').attr('href',event.url);
-    $('#calendarModal').modal();
-    },
-    // dateClick: function(info) {
-    //   alert('Clicked on: ' + info.dateStr);
-    //   alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-    //   alert('Current view: ' + info.view.type);
-    //   // change the day's background color just for fun
-    // }
+
   });
 
+
+
+
   calendar.render();
+
+  calendar.addEvent({
+    title: '希望シフト',
+    start: new Date("2019-04-28"),
+    allDay: true
+  });
+
 });
 
-//モーダルに関する記述
+//まとめて申請モーダルに関する記述
 $('#offer-data').click(function() {
   $('.modal').fadeOut();
 });
