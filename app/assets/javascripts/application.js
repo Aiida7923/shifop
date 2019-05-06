@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     dateClick: function(info) {
       console.log($('#modal_box'))
-      $('#modal-sample').modal('show');
+      $('#modal-sample2').modal('show');
       // alert('Clicked on: ' + info.dateStr);
       // alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
       // alert('Current view: ' + info.view.type);
@@ -98,16 +98,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
   });
 
-
-
-
   calendar.render();
 
-  calendar.addEvent({
-    title: '希望シフト',
-    start: new Date("2019-04-28"),
-    allDay: true
+  var posts = gon.posts;
+  posts.forEach(function( value ) {
+    calendar.addEvent({
+      title: '申請中',
+      start: new Date(value.workday),
+      allDay: true
+    });
   });
+
+
 
 });
 
