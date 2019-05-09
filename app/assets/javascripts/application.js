@@ -56,62 +56,34 @@ document.addEventListener('DOMContentLoaded', function() {
     defaultView: 'dayGridMonth',
     height: 'parent',
     selectable: true,
-    header: {
-      center: 'addEventButton'
-    },
-    // customButtons: {
-    //   addEventButton: {
-    //     text: 'シフト決め打ち',
-    //     click: function() {
-    //       console.log("----------決め打ち---------")
-    //       var dateStr = prompt('Enter a date in YYYY-MM-DD format');
-    //       var date = new Date(dateStr); // will be in local time
-    //
-    //       calendar.addEvent({
-    //         title: '希望シフト',
-    //         start: date,
-    //         allDay: true
-    //       if (!isNaN(date.valueOf())) { // valid?
-    //         });
-    //         alert('Great. Now, update your database...');
-    //       } else {
-    //         alert('Invalid date.');
-    //       }
-    //     }
-    //   }
-    // },
-
-    // dayClick:  function(date, jsEvent, view) {
-    // console.log("----------dayクリック---------")
-    // $('#calendarModal').fadeIn();
-    // },
-
-    dateClick: function(info) {
-      console.log($('#modal_box'))
+    dateClick: function(info,data) {
       $('#modal-sample2').modal('show');
-      // alert('Clicked on: ' + info.dateStr);
-      // alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-      // alert('Current view: ' + info.view.type);
-      // change the day's background color just for fun
+//      var js_str = moment(data).format( 'YYYY/MM/DD' );
+//      @rails_str = js_str;
+//      console.log(str);
     },
-
-
   });
+
 
   calendar.render();
 
+
+
   var posts = gon.posts;
   posts.forEach(function( value ) {
+
+    var start = moment(value.start).subtract(9, 'hour').format('HH:mm');
+    var end = moment(value.end).subtract(9, 'hour').format('HH:mm');
+
     calendar.addEvent({
-      title: '申請中',
+      title: '申請中(' + start + '~' + end + ')',
       start: new Date(value.workday),
       allDay: true
     });
   });
 
-
-
 });
+
 
 //まとめて申請モーダルに関する記述
 $('#offer-data').click(function() {

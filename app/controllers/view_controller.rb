@@ -4,7 +4,6 @@ class ViewController < ApplicationController
   def index
     @posts = Post.where(user_id: @current_user.id)
     gon.posts = @posts
-    gon.day = "2019-05-01"
   end
 
 end
