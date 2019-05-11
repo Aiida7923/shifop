@@ -57,23 +57,19 @@ document.addEventListener('DOMContentLoaded', function() {
     height: 'parent',
     selectable: true,
     dateClick: function(info,data) {
+      var click_day = info.date;
+      console.log(click_day)
       $('#modal-sample2').modal('show');
-//      var js_str = moment(data).format( 'YYYY/MM/DD' );
-//      @rails_str = js_str;
-//      console.log(str);
     },
   });
 
-
   calendar.render();
-
-
 
   var posts = gon.posts;
   posts.forEach(function( value ) {
 
-    var start = moment(value.start).subtract(9, 'hour').format('HH:mm');
-    var end = moment(value.end).subtract(9, 'hour').format('HH:mm');
+    var start = moment(value.start).format('HH:mm');
+    var end = moment(value.end).format('HH:mm');
 
     calendar.addEvent({
       title: '申請中(' + start + '~' + end + ')',

@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root "users#login_form"
   get "view/index"
 
+  #LineBotに関する記述
+  post '/callback', to: 'webhook#callback'
+
   get "login" => "users#login_form"
   post "login" => "users#login"
   post "logout" => "users#logout"
