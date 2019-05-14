@@ -11,6 +11,7 @@
       <div id='calendar'></div>
     </div>
 
+    <!-- 'modal-sample2'に関する記述 -->
     <div class="modal" id="modal-sample2" tabindex="-1">
       <div class="modal-dialog">
 
@@ -26,13 +27,14 @@
           <!-- 5.モーダルのボディ -->
           <%= form_tag("/posts/offer") do %>
             <div class="modal-body">
-              <input class="form-control" type="date" name="workday" id="today" required>
+              <input class="form-control" type="date" name="workday" id="today" required readonly>
               <input class="form-control" type="time" name="start_time" value="09:00" step="900" min="09:00" max="22:00" required>
               <input class="form-control" type="time" name="end_time" value="22:00" step="900" min="09:00" max="22:00" required>
             </div>
           <!-- 6.モーダルのフッタ -->
             <div class="modal-footer">
               <input type="submit" class="btn btn-primary" id="offer-data" value="申請"></input>
+              <input type="button" class="btn btn-delete" value="削除"></input>
               <input type="button" class="btn btn-default" data-dismiss="modal" value="閉じる"></input>
             </div>
           <% end %>

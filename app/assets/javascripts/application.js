@@ -58,7 +58,8 @@ document.addEventListener('DOMContentLoaded', function() {
     selectable: true,
     dateClick: function(info,data) {
       var click_day = info.date;
-      console.log(click_day)
+      var str = moment( click_day ).format( 'YYYY-MM-DD' );
+      $('#today').val(str);
       $('#modal-sample2').modal('show');
     },
   });

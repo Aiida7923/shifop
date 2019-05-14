@@ -7,3 +7,8 @@
   color:black;
   top: ;
 }
+
+.btn-delete{
+  color: red;
+  border-color: #ccc;
+}
