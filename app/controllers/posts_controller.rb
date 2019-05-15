@@ -13,9 +13,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find_by(id: prams[:id])
+    @post = Post.find_by(params[:workday])
     @post.destroy
-
     redirect_to("/view/index")
   end
 end

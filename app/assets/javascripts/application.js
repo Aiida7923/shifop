@@ -56,10 +56,13 @@ document.addEventListener('DOMContentLoaded', function() {
     defaultView: 'dayGridMonth',
     height: 'parent',
     selectable: true,
+
     dateClick: function(info,data) {
+      $("#start").val("09:00");
+      $("#end").val("22:00");
       var click_day = info.date;
-      var str = moment( click_day ).format( 'YYYY-MM-DD' );
-      $('#today').val(str);
+      var format_day = moment( click_day ).format( 'YYYY-MM-DD' );
+      $('#today').val(format_day);
       $('#modal-sample2').modal('show');
     },
   });
@@ -87,14 +90,5 @@ $('#offer-data').click(function() {
   $('.modal').fadeOut();
 });
 
-//デフォルトの日付に関する記述
-// $(function(){
-//     var today = new Date();
-//     today.setDate(today.getDate());
-//     var yyyy = today.getFullYear();
-//     var mm = ("0"+(today.getMonth()+1)).slice(-2);
-//     var dd = ("0"+today.getDate()).slice(-2);
-//     document.getElementById("today").value=yyyy+'-'+mm+'-'+dd;
-// });
 
 //= require_tree .
