@@ -34,6 +34,9 @@
           <!-- 6.モーダルのフッタ -->
             <div class="modal-footer">
               <input type="submit" class="btn btn-primary" id="offer-data" value="申請"></input>
+              <div class="btn btn-edit">
+                <%= link_to("変更して申請", "/view/index/update", {method: "post"}) %>
+              </div>
               <div class="btn btn-delete">
                 <%= link_to("削除", "/view/index/destroy", {method: "post"}) %>
               </div>
