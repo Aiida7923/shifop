@@ -8,7 +8,9 @@
   top: ;
 }
 
-.btn-delete{
-  color: red;
-  border-color: #ccc;
+.btn-delete {
+    color: black;
+    border-color: #000;
+    background-color: #fb6969;
+    margin: 0 0 15px 464px;
 }

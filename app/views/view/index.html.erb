@@ -11,8 +11,48 @@
       <div id='calendar'></div>
     </div>
 
-    <!-- 'modal-sample2'に関する記述 -->
+    <!-- イベントがある日に関する記述 -->
     <div class="modal" id="modal-sample2" tabindex="-1">
+      <div class="modal-dialog">
+
+        <!-- 3.モーダルのコンテンツ -->
+        <div class="modal-content">
+          <!-- 4.モーダルのヘッダ -->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="modal-label">シフトの変更、削除をしてください</h4>
+          </div>
+          <!-- 5.モーダルのボディ -->
+          <%= form_tag("/update") do %>
+            <div class="modal-body">
+              <input class="form-control" type="date" name="workday" id="today" required readonly>
+              <input class="form-control" type="time" name="start_time" id="start" value="09:00" step="900" min="09:00" max="22:00" required>
+              <input class="form-control" type="time" name="end_time" id="end" value="22:00" step="900" min="09:00" max="22:00" required>
+            </div>
+          <!-- 6.モーダルのフッタ -->
+            <div class="modal-footer">
+              <input type="submit" class="btn btn-primary" id="offer-data" value="変更申請"></input>
+              <input type="button" class="btn btn-default" data-dismiss="modal" value="閉じる"></input>
+            </div>
+          <% end %>
+
+          <%= form_tag("/destroy") do %>
+              <input  type="hidden" class="form-control" type="date" name="workday" id="today2" required readonly>
+              <input  type="hidden" class="form-control" type="time" name="start_time" id="start" value="09:00" step="900" min="09:00" max="22:00" required>
+              <input  type="hidden" class="form-control" type="time" name="end_time" id="end" value="22:00" step="900" min="09:00" max="22:00" required>
+              <input  type="submit" class="btn btn-delete" id="offer-data" value="削除"></input>
+          <% end %>
+
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- イベントが無い日に関する記述 -->
+    <div class="modal" id="modal-sample3" tabindex="-1">
       <div class="modal-dialog">
 
         <!-- 3.モーダルのコンテンツ -->
@@ -24,28 +64,29 @@
             </button>
             <h4 class="modal-title" id="modal-label">希望する時間を選択してください</h4>
           </div>
+
           <!-- 5.モーダルのボディ -->
           <%= form_tag("/posts/offer") do %>
             <div class="modal-body">
-              <input class="form-control" type="date" name="workday" id="today" required readonly>
-              <input class="form-control" type="time" name="start_time" id="start" value="09:00" step="900" min="09:00" max="22:00" required>
-              <input class="form-control" type="time" name="end_time" id="end" value="22:00" step="900" min="09:00" max="22:00" required>
+              <input class="form-control" type="date" name="workday" id="today3" required readonly>
+              <input class="form-control" type="time" name="start_time" id="start2" value="09:00" step="900" min="09:00" max="22:00" required>
+              <input class="form-control" type="time" name="end_time" id="end2" value="22:00" step="900" min="09:00" max="22:00" required>
             </div>
           <!-- 6.モーダルのフッタ -->
             <div class="modal-footer">
               <input type="submit" class="btn btn-primary" id="offer-data" value="申請"></input>
-              <div class="btn btn-edit">
-                <%= link_to("変更して申請", "/view/index/update", {method: "post"}) %>
-              </div>
-              <div class="btn btn-delete">
-                <%= link_to("削除", "/view/index/destroy", {method: "post"}) %>
-              </div>
               <input type="button" class="btn btn-default" data-dismiss="modal" value="閉じる"></input>
             </div>
           <% end %>
+
         </div>
       </div>
     </div>
+
+
+
+
+
 
 
   </body>

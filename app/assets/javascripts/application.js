@@ -46,6 +46,7 @@
 // });
 
 
+
 //カレンダーに関する記述
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
@@ -58,18 +59,41 @@ document.addEventListener('DOMContentLoaded', function() {
     selectable: true,
 
     dateClick: function(info,data) {
+      var click_day = moment( info.date ).format( 'YYYY-MM-DD' );
+      $('#today').val(click_day);
+      $('#today2').val(click_day);
+      $('#today3').val(click_day);
+
       $("#start").val("09:00");
+      $("#start2").val("09:00");
       $("#end").val("22:00");
-      var click_day = info.date;
-      var format_day = moment( click_day ).format( 'YYYY-MM-DD' );
-      $('#today').val(format_day);
-      $('#modal-sample2').modal('show');
+      $("#end2").val("22:00");
+
+
+      var i = 0;
+      var allevent = calendar.getEvents();
+      allevent.forEach(function( value ) {
+
+        if (click_day === moment(value.start).format("YYYY-MM-DD")){
+          i += 1;
+        } else {
+          i += 0;
+        }
+      });
+
+      if (i == 1) {
+        $('#modal-sample2').modal('show');
+      } else {
+        $('#modal-sample3').modal('show');
+      }
+
     },
   });
 
   calendar.render();
 
   var posts = gon.posts;
+  console.log(posts);
   posts.forEach(function( value ) {
 
     var start = moment(value.start).format('HH:mm');
@@ -81,6 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
       allDay: true
     });
   });
+
 
 });
 

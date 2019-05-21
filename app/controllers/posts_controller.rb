@@ -13,22 +13,15 @@ class PostsController < ApplicationController
   end
 
   def update
-    @posts = Post.find_by(params[:workday],params[:start],params[:end])
-    @posts.start = params[:start]
-    @posts.end = params[:end]
-    logger.debug("====================")
-    logger.debug(@posts.start)
-    logger.debug("====================")
-    logger.debug(@posts.end)
-    logger.debug("====================")
-    logger.debug(@posts)
-    logger.debug("====================")
-    @post.save
-    redirect_to("view/index")
+    @posts = Post.find_by(workday: params[:workday])
+    @posts.start = params[:start_time]
+    @posts.end = params[:end_time]
+    @posts.save
+    redirect_to("/view/index")
   end
 
   def destroy
-    @post = Post.find_by(params[:workday])
+    @post = Post.find_by(workday: params[:workday])
     logger.debug("---------------")
     logger.debug(params[:workday])
     logger.debug("---------------")
