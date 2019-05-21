@@ -51,6 +51,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
 
+  var posts = gon.posts;
   var calendar = new FullCalendar.Calendar(calendarEl, {
     plugins: [ 'dayGrid','interaction'],
     timeZone: 'UTC',
@@ -60,20 +61,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     dateClick: function(info,data) {
       var click_day = moment( info.date ).format( 'YYYY-MM-DD' );
+
+      posts.forEach(function( value ) {
+        if (value.workday == click_day) {
+          $("#start").val(moment(value.start).format("HH:mm"));
+          $("#end").val(moment(value.end).format("HH:mm"));
+        } else {
+        }
+      });
+
       $('#today').val(click_day);
       $('#today2').val(click_day);
       $('#today3').val(click_day);
 
-      $("#start").val("09:00");
       $("#start2").val("09:00");
-      $("#end").val("22:00");
       $("#end2").val("22:00");
-
 
       var i = 0;
       var allevent = calendar.getEvents();
       allevent.forEach(function( value ) {
-
         if (click_day === moment(value.start).format("YYYY-MM-DD")){
           i += 1;
         } else {
@@ -92,13 +98,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   calendar.render();
 
-  var posts = gon.posts;
-  console.log(posts);
-  posts.forEach(function( value ) {
 
+  posts.forEach(function( value ) {
     var start = moment(value.start).format('HH:mm');
     var end = moment(value.end).format('HH:mm');
-
     calendar.addEvent({
       title: '申請中(' + start + '~' + end + ')',
       start: new Date(value.workday),
