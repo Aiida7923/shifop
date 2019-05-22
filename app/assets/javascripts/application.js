@@ -61,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     dateClick: function(info,data) {
       var click_day = moment( info.date ).format( 'YYYY-MM-DD' );
-
       posts.forEach(function( value ) {
         if (value.workday == click_day) {
           $("#start").val(moment(value.start).format("HH:mm"));
@@ -117,6 +116,9 @@ document.addEventListener('DOMContentLoaded', function() {
 $('#offer-data').click(function() {
   $('.modal').fadeOut();
 });
+
+
+
 
 
 //= require_tree .

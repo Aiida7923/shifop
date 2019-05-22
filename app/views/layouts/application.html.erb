@@ -26,12 +26,9 @@
       <ul class="header-menus">
         <% if @current_user %>
         <li>
-          <%= link_to("申請一覧", "/posts/index") %>
-        </li>
-        <li>
           <!-- 1.モーダルを表示する為のボタン -->
           <button class="btn btn-primary" data-toggle="modal" data-target="#modal-sample">
-            まとめて申請
+            申請
           </button>
           <!-- 2.モーダルの配置 -->
           <div class="modal" id="modal-sample" tabindex="-1">

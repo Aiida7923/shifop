@@ -8,10 +8,6 @@ class PostsController < ApplicationController
     redirect_to("/view/index")
   end
 
-  def index
-    @posts = Post.where(user_id: @current_user.id)
-  end
-
   def update
     @posts = Post.find_by(workday: params[:workday])
     @posts.start = params[:start_time]
