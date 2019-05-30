@@ -32,19 +32,21 @@
               <input class="form-control" type="time" name="end_time" id="end" value="22:00" step="900" min="09:00" max="22:00" required>
             </div>
           <!-- 6.モーダルのフッタ -->
-            <div class="modal-footer">
-              <input type="submit" class="btn btn-primary" id="offer-data" value="変更申請"></input>
-              <input type="button" class="btn btn-default" data-dismiss="modal" value="閉じる"></input>
+            <div id="modal-footer">
+              <input type="submit" class="btn btn-primary" id="offer-data" value="時間の変更"></input>
             </div>
           <% end %>
 
-          <%= form_tag("/destroy") do %>
-              <input  type="hidden" class="form-control" type="date" name="workday" id="today2" required readonly>
-              <input  type="hidden" class="form-control" type="time" name="start_time" id="start" value="09:00" step="900" min="09:00" max="22:00" required>
-              <input  type="hidden" class="form-control" type="time" name="end_time" id="end" value="22:00" step="900" min="09:00" max="22:00" required>
-              <input  type="submit" class="btn btn-delete" id="offer-data" value="削除"></input>
-          <% end %>
 
+          <%= form_tag("/destroy") do %>
+            <input  type="hidden" class="form-control" type="date" name="workday" id="today2" required readonly>
+            <input  type="hidden" class="form-control" type="time" name="start_time" id="start" step="900" min="09:00" max="22:00" required>
+            <input  type="hidden" class="form-control" type="time" name="end_time" id="end" step="900" min="09:00" max="22:00" required>
+
+            <div id="modal-footer2">
+              <input  type="submit" class="btn btn-delete" id="offer-data" value="申請の削除"></input>
+            </div>
+          <% end %>
 
         </div>
       </div>
@@ -73,9 +75,8 @@
               <input class="form-control" type="time" name="end_time" id="end2" value="22:00" step="900" min="09:00" max="22:00" required>
             </div>
           <!-- 6.モーダルのフッタ -->
-            <div class="modal-footer">
+            <div id="modal-footer3">
               <input type="submit" class="btn btn-primary" id="offer-data" value="申請"></input>
-              <input type="button" class="btn btn-default" data-dismiss="modal" value="閉じる"></input>
             </div>
           <% end %>
 

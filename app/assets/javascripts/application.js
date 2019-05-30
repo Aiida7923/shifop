@@ -112,13 +112,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-//まとめて申請モーダルに関する記述
-$('#offer-data').click(function() {
-  $('.modal').fadeOut();
-});
-
-
-
 
 
 //= require_tree .

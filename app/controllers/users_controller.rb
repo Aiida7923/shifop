@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :forbid_login_user,{only: [:login_form]}
 
   def login_form
   end

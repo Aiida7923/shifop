@@ -22,6 +22,13 @@
 
   <body>
     <header>
+
+      <% if flash[:notice] %>
+        <div class="flash">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+
       <img src="/assets/logo.png" alt="" class="img">
       <ul class="header-menus">
         <% if @current_user %>
@@ -53,7 +60,6 @@
                 <!-- 6.モーダルのフッタ -->
                   <div class="modal-footer">
                     <input type="submit" class="btn btn-primary" id="offer-data" value="申請"></input>
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="閉じる"></input>
                   </div>
                 <% end %>
               </div>
@@ -70,6 +76,9 @@
         <% end %>
       </ul>
     </header>
+
+
+
     <div class="main">
       <%= yield %>
     </div>

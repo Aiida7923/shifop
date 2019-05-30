@@ -7,9 +7,71 @@
   color:black;
 }
 
+.modal-dialog {
+  width: 400px;
+  margin: 200px auto;
+}
+
+.modal-body {
+    position: relative;
+    padding: 0px;
+    padding-bottom: 0px;
+}
+
+#modal-footer {
+  padding: 0px;
+  border-top: 1px solid #e5e5e5;
+}
+
+#modal-footer2 {
+  padding: 0px;
+  border-top: 1px solid #ffffff;
+}
+
+#modal-footer3 {
+  padding: 0px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.btn {
+  display: block;
+	width: 120px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #3b58e6;
+  margin: 5px auto;
+	border: 2px solid #3b58e6;
+	border-radius: 3px;
+	transition: .4s;
+  background-color: #ffffff
+}
+
+.btn:hover {
+	background: #3b58e6;
+	color: #fff;
+}
+
 .btn-delete {
-    color: black;
-    border-color: #000;
-    background-color: #fb6969;
-    margin: 0 0 15px 464px;
+  display: block;
+	width: 120px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #EC407A;
+  margin: 5px auto;
+	border: 2px solid #EC407A;
+	border-radius: 3px;
+	transition: .4s;
+}
+
+.btn-delete:hover {
+	background: #EC407A;
+	color: #fff;
+}
+
+
+.form-control {
+    margin: 10px auto;
+    width: 50%;
 }
