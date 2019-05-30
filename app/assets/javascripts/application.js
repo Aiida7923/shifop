@@ -32,19 +32,10 @@
 
 
 //ブラウザバックの禁止
-// $(function(){
-//   window.onunload = function() {};
-//   history.forward();
-// });
-
-// history.pushState(null, null, null);
-// $(window).on("popstate", function (event) {
-//     if (!event.originalEvent.state) {
-//         history.pushState(null, null, null);
-//         return;
-//     }
-// });
-
+$(function(){
+  window.onunload = function() {};
+  history.forward();
+});
 
 
 //カレンダーに関する記述
