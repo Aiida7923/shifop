@@ -12,6 +12,8 @@ class LinebotController < ApplicationController
     }
   end
 
+  
+
   def callback
     body = request.body.read
 

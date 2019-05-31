@@ -84,6 +84,14 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
     },
+
+    select: function(info) {
+      for (var i = moment(info.startStr).format("D"); i <= moment(info.endStr).format("D"); i++){
+
+      }
+      console.log(i);
+    }
+
   });
 
   calendar.render();

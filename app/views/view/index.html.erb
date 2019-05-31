@@ -27,9 +27,15 @@
           <!-- 5.モーダルのボディ -->
           <%= form_tag("/update") do %>
             <div class="modal-body">
-              <input class="form-control" type="date" name="workday" id="today" required readonly>
-              <input class="form-control" type="time" name="start_time" id="start" value="09:00" step="900" min="09:00" max="22:00" required>
-              <input class="form-control" type="time" name="end_time" id="end" value="22:00" step="900" min="09:00" max="22:00" required>
+              <div class="form-title">日付：
+                <input class="form-control" type="date" name="workday" id="today" required readonly>
+              </div>
+              <div class="form-title">開始：
+                <input class="form-control" type="time" name="start_time" id="start" value="09:00" step="900" min="09:00" max="22:00" required>
+              </div>
+              <div class="form-title">終了：
+                <input class="form-control" type="time" name="end_time" id="end" value="22:00" step="900" min="09:00" max="22:00" required>
+              </div>
             </div>
           <!-- 6.モーダルのフッタ -->
             <div id="modal-footer">
@@ -70,9 +76,15 @@
           <!-- 5.モーダルのボディ -->
           <%= form_tag("/posts/offer") do %>
             <div class="modal-body">
-              <input class="form-control" type="date" name="workday" id="today3" required readonly>
-              <input class="form-control" type="time" name="start_time" id="start2" value="09:00" step="900" min="09:00" max="22:00" required>
-              <input class="form-control" type="time" name="end_time" id="end2" value="22:00" step="900" min="09:00" max="22:00" required>
+              <div class="form-title">日付：
+                <input class="form-control" type="date" name="workday" id="today3" required readonly>
+              </div>
+              <div class="form-title">開始：
+                <input class="form-control" type="time" name="start_time" id="start2" value="09:00" step="900" min="09:00" max="22:00" required>
+              </div>
+              <div class="form-title">終了：
+                <input class="form-control" type="time" name="end_time" id="end2" value="22:00" step="900" min="09:00" max="22:00" required>
+              </div>
             </div>
           <!-- 6.モーダルのフッタ -->
             <div id="modal-footer3">
