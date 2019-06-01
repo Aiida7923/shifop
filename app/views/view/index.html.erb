@@ -22,7 +22,7 @@
             <button type="button" class="close" data-dismiss="modal">
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4 class="modal-title" id="modal-label">シフトの変更・削除</h4>
+            <h4 class="modal-title" id="modal-label">シフトの変更・取り消し</h4>
           </div>
           <!-- 5.モーダルのボディ -->
           <%= form_tag("/update") do %>
@@ -39,7 +39,7 @@
             </div>
           <!-- 6.モーダルのフッタ -->
             <div id="modal-footer">
-              <input type="submit" class="btn btn-primary" id="offer-data" value="時間の変更"></input>
+              <%= submit_tag "シフトの変更", class: "btn btn-primary", id: "offer-data", data: {confirm: "シフトを変更しますか？"}%>
             </div>
           <% end %>
 
@@ -50,7 +50,7 @@
             <input  type="hidden" class="form-control" type="time" name="end_time" id="end" step="900" min="09:00" max="22:00" required>
 
             <div id="modal-footer2">
-              <input  type="submit" class="btn btn-delete" id="offer-data" value="申請の削除"></input>
+              <%= submit_tag "シフト取り消し", class: "btn btn-delete", id: "offer-data", data: {confirm: "シフトを取り消しますか？"}%>
             </div>
           <% end %>
 

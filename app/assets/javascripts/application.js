@@ -85,12 +85,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     },
 
+    //ドラッグ選択による申請
     select: function(info) {
-      for (var i = moment(info.startStr).format("D"); i <= moment(info.endStr).format("D"); i++){
+      var start = moment(info.start);
+      var end = moment(info.end);
 
+      for (var target = start.clone(); target.isBefore(end); target.add(1, "days")){
+        console.log(target.format("YYYY-MM-DD"));
       }
-      console.log(i);
     }
+
 
   });
 
