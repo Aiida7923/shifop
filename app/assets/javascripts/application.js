@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //ドラッグ選択による申請
     select: function(info) {
+      alert('Clicked on: ' + info.dateStr);
       var start = moment(info.start);
       var end = moment(info.end);
 
