@@ -12,7 +12,7 @@ class LinebotController < ApplicationController
     }
   end
 
-  
+
 
   def callback
     body = request.body.read
@@ -28,6 +28,9 @@ class LinebotController < ApplicationController
     # messageのtext: に指定すると、返信する文字を決定することができる
     #event.message['text']で送られたメッセージを取得することができる
     events.each { |event|
+
+      logger.debug(event.message['text'])
+
       case event
         when Line::Bot::Event::Message
           case event.type

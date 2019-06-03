@@ -32,10 +32,10 @@
 
 
 //ブラウザバックの禁止
-$(function(){
-  window.onunload = function() {};
-  history.forward();
-});
+// $(function(){
+//   window.onunload = function() {};
+//   history.forward();
+// });
 
 
 //カレンダーに関する記述
