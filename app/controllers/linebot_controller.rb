@@ -29,12 +29,12 @@ class LinebotController < ApplicationController
     #event.message['text']で送られたメッセージを取得することができる
     events.each { |event|
 
-      logger.debug(event.message['text'])
       logger.debug(event.message)
 
       case event
         when Line::Bot::Event::Message
           case event.type
+            logger.debug(event.type)
           when Line::Bot::Event::MessageType::Text
             message = {
               type: 'text',
