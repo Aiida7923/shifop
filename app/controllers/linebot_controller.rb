@@ -32,7 +32,7 @@ class LinebotController < ApplicationController
       if [event.message['text']].include?("シフト")
         message = {
           type: 'text',
-          text: "シフト教える"
+          text: 'シフト教える'
         }
         client.reply_message(event['replyToken'], message)
       else
