@@ -39,7 +39,7 @@ class LinebotController < ApplicationController
       else
         message = {
           type: 'text',
-          text: 'シフトと入力するとシフトを教えてくれます。'
+          text: '「シフト」と入力するとシフトを教えてくれます。'
         }
         client.reply_message(event['replyToken'], message)
       end
