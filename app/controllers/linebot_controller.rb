@@ -30,18 +30,25 @@ class LinebotController < ApplicationController
     events.each { |event|
 
       logger.debug(event.message['text'])
+      if event.message['text'] == "こんにちは"
+        message = {
+          type: 'text',
+          text: 'こんにちはあああ'
+        }
+        client.reply_message(event['replyToken'], message)
+      end
 
-      case event
-        when Line::Bot::Event::Message
-          case event.type
-          when Line::Bot::Event::MessageType::Text
-            message = {
-              type: 'text',
-              text: 'あいうssas' #ここでLINEで送った文章を取得
-            }
-            client.reply_message(event['replyToken'], message)
-          end
-        end
+      # case event
+      #   when Line::Bot::Event::Message
+      #     case event.type
+      #     when Line::Bot::Event::MessageType::Text
+      #       message = {
+      #         type: 'text',
+      #         text: 'あいうssas' #ここでLINEで送った文章を取得
+      #       }
+      #       client.reply_message(event['replyToken'], message)
+      #     end
+      #   end
     }
 
     head :ok
