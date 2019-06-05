@@ -30,14 +30,14 @@ class LinebotController < ApplicationController
     events.each { |event|
 
       logger.debug(event.message['text'])
-      if [event.message['text']].include?("シフト")
+      if [event.message['text']].include?("シフト","しふと")
         message = {
           type: 'text',
           text: 'シフトを教えます'
         }
         client.reply_message(event['replyToken'], message)
       end
-
+      # おうむ返しのコード
       # case event
       #   when Line::Bot::Event::Message
       #     case event.type
