@@ -29,16 +29,15 @@ class LinebotController < ApplicationController
     #event.message['text']で送られたメッセージを取得することができる
     events.each { |event|
 
-      logger.debug(event.message)
+      logger.debug(event.message['text'])
 
       case event
         when Line::Bot::Event::Message
           case event.type
-            logger.debug(event.type)
           when Line::Bot::Event::MessageType::Text
             message = {
               type: 'text',
-              text: 'あいうエオ' #ここでLINEで送った文章を取得
+              text: 'あいうssas' #ここでLINEで送った文章を取得
             }
             client.reply_message(event['replyToken'], message)
           end
