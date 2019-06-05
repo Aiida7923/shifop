@@ -41,13 +41,6 @@ class LinebotController < ApplicationController
             }
             client.reply_message(event['replyToken'], message)
           end
-          when event.message['text'] == "あいう"
-            message = {
-              type: 'text',
-              text: '完了' #ここでLINEで送った文章を取得
-            }
-            client.reply_message(event['replyToken'], message)
-          end
         end
     }
 
