@@ -16,7 +16,7 @@ class LinebotController < ApplicationController
 
   def callback
     @posts = Post.where(user_id: @current_user.id)
-
+    console.log(@posts)
     body = request.body.read
 
     signature = request.env['HTTP_X_LINE_SIGNATURE']
@@ -32,7 +32,7 @@ class LinebotController < ApplicationController
       if [event.message['text']].include?("シフト")
         message = {
           type: 'text',
-          text: @posts
+          text: "シフト教える"
         }
         client.reply_message(event['replyToken'], message)
       else
