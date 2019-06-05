@@ -30,6 +30,7 @@ class LinebotController < ApplicationController
     events.each { |event|
 
       logger.debug(event.message['text'])
+      logger.debug(event.message)
 
       case event
         when Line::Bot::Event::Message
