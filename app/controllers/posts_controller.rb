@@ -24,4 +24,8 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to("/view/index")
   end
+
+  def index
+     @posts = Post.where(user_id: @current_user.id)
+  end
 end

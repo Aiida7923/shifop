@@ -15,6 +15,8 @@ class LinebotController < ApplicationController
 
 
   def callback
+    @posts = Post.where(user_id: @current_user.id)
+
     body = request.body.read
 
     signature = request.env['HTTP_X_LINE_SIGNATURE']
@@ -24,16 +26,13 @@ class LinebotController < ApplicationController
 
     events = client.parse_events_from(body)
 
-    #ここでlineに送られたイベントを検出している
-    # messageのtext: に指定すると、返信する文字を決定することができる
-    #event.message['text']で送られたメッセージを取得することができる
     events.each { |event|
 
       logger.debug(event.message['text'])
       if [event.message['text']].include?("シフト")
         message = {
           type: 'text',
-          text: 'シフトを教えます'
+          text: @posts
         }
         client.reply_message(event['replyToken'], message)
       else
