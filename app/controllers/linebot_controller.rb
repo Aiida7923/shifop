@@ -16,7 +16,9 @@ class LinebotController < ApplicationController
 
   def callback
     @posts = Post.where(user_id: @current_user.id)
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~")
     console.log(@posts)
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~")
     body = request.body.read
 
     signature = request.env['HTTP_X_LINE_SIGNATURE']
