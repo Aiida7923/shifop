@@ -18,9 +18,6 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find_by(workday: params[:workday])
-    logger.debug("---------------")
-    logger.debug(params[:workday])
-    logger.debug("---------------")
     @post.destroy
     redirect_to("/view/index")
   end
