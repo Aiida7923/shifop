@@ -4,8 +4,11 @@ class PostsController < ApplicationController
     @post = Post.new(workday: params[:workday], start: params[:start_time], end: params[:end_time],
       user_id: @current_user.id
     )
-    @post.save
-    redirect_to("/view/index")
+    if @post.save
+      redirect_to("/view/index")
+    else
+      redirect_to("/view/index")
+    end
   end
 
   def update
@@ -23,6 +26,6 @@ class PostsController < ApplicationController
   end
 
   def index
-     @posts = Post.where(user_id: @current_user.id)
+    @posts = Post.where(user_id: @current_user.id)
   end
 end

@@ -1,5 +1,14 @@
-<% @posts.each do |post| %>
-  <div class="posts-index-item">
-    <%= post.workday %>
-  </div>
-<% end %>
+<!DOCTYPE html>
+<html lang='ja'>
+
+  <head>
+    <meta charset='utf-8' />
+    <%= include_gon %>
+  </head>
+
+  <body>
+    <div id='calendar-container'>
+      <div id='calendar'></div>
+    </div>
+  </body>
+</html>

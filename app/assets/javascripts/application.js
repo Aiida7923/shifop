@@ -95,6 +95,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
       for (var target = start.clone(); target.isBefore(end); target.add(1, "days")){
         var allevent = calendar.getEvents();
+        
+        console.log(target.format("YYYY-MM-DD"));
+        $('today4').val(target.format("YYYY-MM-DD"));
 
         allevent.forEach(function( value ) {
           if (target.format("YYYY-MM-DD") === moment(value.start).format("YYYY-MM-DD")){
@@ -105,13 +108,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }
 
-      if (t == 1) {
+      if (start.add(1,"days").format("YYYY-MM-DD") == end.format("YYYY-MM-DD")) {
+        return;
+      } else if (t == 1) {
         $('#modal-sample4').modal('show');
-      } else if (start.add(1,"days").format("YYYY-MM-DD") == end.format("YYYY-MM-DD")) {
-        alert("hello");
       } else {
         alert("すでに申請が行われている日付が含まれています。");
       }
+
     }
 
 
