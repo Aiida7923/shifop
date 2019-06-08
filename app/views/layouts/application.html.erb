@@ -34,9 +34,9 @@
         <% if @current_user %>
         <li>
           <!-- 1.モーダルを表示する為のボタン -->
-          <button class="btn btn-primary" data-toggle="modal" data-target="#modal-sample">
+          <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#modal-sample">
             申請
-          </button>
+          </button> -->
           <!-- 2.モーダルの配置 -->
           <div class="modal" id="modal-sample" tabindex="-1">
             <div class="modal-dialog">
@@ -67,7 +67,7 @@
           </div>
         </li>
         <li>
-          <%= link_to("ログアウト", "/logout", {method: :post})%>
+          <%= button_to "ログアウト", "/logout", class: "btn btn-delete", data: {confirm: "ログアウトしてよろしいですか？"} %>
         </li>
         <% end %>
       </ul>
