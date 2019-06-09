@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      flash[:notice] = "ログインしました"
       redirect_to("/view/index")
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
@@ -20,7 +19,6 @@ class UsersController < ApplicationController
 
   def logout
     session[:user_id] = nil
-    flash[:notice] = "ログアウトしました"
     redirect_to("/login")
   end
 end

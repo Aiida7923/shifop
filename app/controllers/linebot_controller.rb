@@ -15,6 +15,10 @@ class LinebotController < ApplicationController
 
 
   def callback
+    @posts = Post.where(user_id: @current_user.id)
+    logger.debug("~~~~~~~~~~~~~~~~~~~~~~~~~")
+    logger.debug(@posts)
+    logger.debug("~~~~~~~~~~~~~~~~~~~~~~~~~")
     body = request.body.read
 
     signature = request.env['HTTP_X_LINE_SIGNATURE']
@@ -24,24 +28,34 @@ class LinebotController < ApplicationController
 
     events = client.parse_events_from(body)
 
-    #ここでlineに送られたイベントを検出している
-    # messageのtext: に指定すると、返信する文字を決定することができる
-    #event.message['text']で送られたメッセージを取得することができる
     events.each { |event|
 
       logger.debug(event.message['text'])
-
-      case event
-        when Line::Bot::Event::Message
-          case event.type
-          when Line::Bot::Event::MessageType::Text
-            message = {
-              type: 'text',
-              text: 'あいう' #ここでLINEで送った文章を取得
-            }
-            client.reply_message(event['replyToken'], message)
-          end
-        end
+      if [event.message['text']].include?("シフト")
+        message = {
+          type: 'text',
+          text: 'シフト教える'
+        }
+        client.reply_message(event['replyToken'], message)
+      else
+        message = {
+          type: 'text',
+          text: '「シフト」と入力するとシフトを教えてくれます。'
+        }
+        client.reply_message(event['replyToken'], message)
+      end
+      # おうむ返しのコード
+      # case event
+      #   when Line::Bot::Event::Message
+      #     case event.type
+      #     when Line::Bot::Event::MessageType::Text
+      #       message = {
+      #         type: 'text',
+      #         text: 'あいうssas' #ここでLINEで送った文章を取得
+      #       }
+      #       client.reply_message(event['replyToken'], message)
+      #     end
+      #   end
     }
 
     head :ok
