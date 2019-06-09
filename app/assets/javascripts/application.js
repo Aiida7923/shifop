@@ -86,37 +86,37 @@ document.addEventListener('DOMContentLoaded', function() {
     },
 
     //ドラッグ選択による申請
-    select: function(info) {
-      var start = moment(info.start);
-      var end = moment(info.end);
-      var t = 1;
-      console.log(start.format("YYYY-MM-DD"));
-      console.log(end.format("YYYY-MM-DD"));
-
-      for (var target = start.clone(); target.isBefore(end); target.add(1, "days")){
-        var allevent = calendar.getEvents();
-        
-        console.log(target.format("YYYY-MM-DD"));
-        $('today4').val(target.format("YYYY-MM-DD"));
-
-        allevent.forEach(function( value ) {
-          if (target.format("YYYY-MM-DD") === moment(value.start).format("YYYY-MM-DD")){
-            t += 1;
-          } else {
-            t += 0;
-          }
-        });
-      }
-
-      if (start.add(1,"days").format("YYYY-MM-DD") == end.format("YYYY-MM-DD")) {
-        return;
-      } else if (t == 1) {
-        $('#modal-sample4').modal('show');
-      } else {
-        alert("すでに申請が行われている日付が含まれています。");
-      }
-
-    }
+    // select: function(info) {
+    //   var start = moment(info.start);
+    //   var end = moment(info.end);
+    //   var t = 1;
+    //   console.log(start.format("YYYY-MM-DD"));
+    //   console.log(end.format("YYYY-MM-DD"));
+    //
+    //   for (var target = start.clone(); target.isBefore(end); target.add(1, "days")){
+    //     var allevent = calendar.getEvents();
+    //
+    //     console.log(target.format("YYYY-MM-DD"));
+    //     $('today4').val(target.format("YYYY-MM-DD"));
+    //
+    //     allevent.forEach(function( value ) {
+    //       if (target.format("YYYY-MM-DD") === moment(value.start).format("YYYY-MM-DD")){
+    //         t += 1;
+    //       } else {
+    //         t += 0;
+    //       }
+    //     });
+    //   }
+    //
+    //   if (start.add(1,"days").format("YYYY-MM-DD") == end.format("YYYY-MM-DD")) {
+    //     return;
+    //   } else if (t == 1) {
+    //     $('#modal-sample4').modal('show');
+    //   } else {
+    //     alert("すでに申請が行われている日付が含まれています。");
+    //   }
+    //
+    // }
 
 
   });
