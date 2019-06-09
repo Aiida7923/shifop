@@ -22,6 +22,21 @@ header{
   margin: 0 20px;
 }
 
+h1.language-title {
+  color: black;
+  font-size: 15px;
+  margin: auto;
+  height: 40px;
+  text-align: right;
+}
+
+p.language-text {
+  color: black;
+  display: none;
+  font-size: 13px;
+
+}
+
 img{
   height:100%;
   width:auto;
