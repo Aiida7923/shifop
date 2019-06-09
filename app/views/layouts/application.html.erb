@@ -30,18 +30,48 @@
       <% end %>
 
       <img src="/assets/logo.png" alt="" class="img">
-      <ul class="header-menus" style="height: 60px;">
+      <ul class="header-menus">
         <% if @current_user %>
         <li>
-          <div id ="language-wrapper">
-            <h1 class="language-title">シフトを出すには？</h1>
-            <p class="language-text">
-              カレンダーをクリックして申請しよう!
-            </p>
+          <!-- 1.モーダルを表示する為のボタン -->
+          <button class="btn btn-primary" data-toggle="modal" data-target="#modal-sample">
+            申請
+          </button>
+          <!-- 2.モーダルの配置 -->
+          <div class="modal" id="modal-sample" tabindex="-1">
+            <div class="modal-dialog">
+
+              <!-- 3.モーダルのコンテンツ -->
+              <div class="modal-content">
+                <!-- 4.モーダルのヘッダ -->
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="modal-label">希望する日時を選択して下さい</h4>
+                </div>
+                <!-- 5.モーダルのボディ -->
+                <%= form_tag("/posts/offer") do %>
+                  <div class="modal-body">
+                    <input class="form-control" type="date" name="workday" required>
+                    <input class="form-control" type="time" name="start_time" value="09:00" step="900" min="09:00" max="22:00" required>
+                    <input class="form-control" type="time" name="end_time" value="22:00" step="900" min="09:00" max="22:00" required>
+                  </div>
+                <!-- 6.モーダルのフッタ -->
+                  <div class="modal-footer">
+                    <input type="submit" class="btn btn-primary" id="offer-data" value="申請"></input>
+                  </div>
+                <% end %>
+              </div>
+            </div>
           </div>
         </li>
         <li>
-          <%= button_to "ログアウト", "/logout", class: "btn btn-delete", data: {confirm: "ログアウトしてよろしいですか？"} %>
+          <%= link_to("ログアウト", "/logout", {method: :post})%>
+        </li>
+        <% else %>
+        <li>
+          <%= link_to("ログイン", "/login") %>
         </li>
         <% end %>
       </ul>
