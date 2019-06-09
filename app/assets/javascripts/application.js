@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var posts = gon.posts;
   var calendar = new FullCalendar.Calendar(calendarEl, {
     plugins: [ 'dayGrid','interaction'],
-    timeZone: 'UTC',
+    timeZone: 'Asia/Tokyo',
     defaultView: 'dayGridMonth',
     height: 'parent',
     selectable: true,
@@ -64,8 +64,8 @@ document.addEventListener('DOMContentLoaded', function() {
       $('#today2').val(click_day);
       $('#today3').val(click_day);
 
-      $("#start2").val("09:00");
-      $("#end2").val("22:00");
+      $("#start3").val("09:00");
+      $("#end3").val("22:00");
 
       var i = 0;
       var allevent = calendar.getEvents();
@@ -86,15 +86,37 @@ document.addEventListener('DOMContentLoaded', function() {
     },
 
     //ドラッグ選択による申請
-    select: function(info) {
-      alert('Clicked on: ' + info.dateStr);
-      var start = moment(info.start);
-      var end = moment(info.end);
-
-      for (var target = start.clone(); target.isBefore(end); target.add(1, "days")){
-        console.log(target.format("YYYY-MM-DD"));
-      }
-    }
+    // select: function(info) {
+    //   var start = moment(info.start);
+    //   var end = moment(info.end);
+    //   var t = 1;
+    //   console.log(start.format("YYYY-MM-DD"));
+    //   console.log(end.format("YYYY-MM-DD"));
+    //
+    //   for (var target = start.clone(); target.isBefore(end); target.add(1, "days")){
+    //     var allevent = calendar.getEvents();
+    //
+    //     console.log(target.format("YYYY-MM-DD"));
+    //     $('today4').val(target.format("YYYY-MM-DD"));
+    //
+    //     allevent.forEach(function( value ) {
+    //       if (target.format("YYYY-MM-DD") === moment(value.start).format("YYYY-MM-DD")){
+    //         t += 1;
+    //       } else {
+    //         t += 0;
+    //       }
+    //     });
+    //   }
+    //
+    //   if (start.add(1,"days").format("YYYY-MM-DD") == end.format("YYYY-MM-DD")) {
+    //     return;
+    //   } else if (t == 1) {
+    //     $('#modal-sample4').modal('show');
+    //   } else {
+    //     alert("すでに申請が行われている日付が含まれています。");
+    //   }
+    //
+    // }
 
 
   });
@@ -112,6 +134,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+
+  $(function() {
+  // 「#language-wrapper」にhoverしたときのhoverイベントを作成してください
+    $('#language-wrapper').hover(function(){
+      $('.language-text').fadeIn();
+    },function(){
+      $('.language-text').fadeOut();
+      }
+    )
+  });
 
 });
 
