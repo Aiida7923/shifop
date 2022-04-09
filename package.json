@@ -7,6 +7,6 @@
     "@fullcalendar/list": "^4.0.1",
     "@fullcalendar/timegrid": "^4.0.1",
     "jQuery": "^1.7.4",
-    "moment": "^2.24.0"
+    "moment": "^2.29.2"
   }
 }
